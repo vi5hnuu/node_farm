@@ -3,7 +3,7 @@ const fs = require('fs')
 const http = require('http')
 const url = require('url')
 const slugify = require('slugify')
-const replaceTemplate = require('./modules/replaceTemplate')
+const replaceTemplate = require('./modules/replaceTemplate')//. points to where index.js resides
 /////////////////////////////////
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, { encoding: 'utf-8' })
 const temp_overview = fs.readFileSync(`${__dirname}/templates/template-overview.html`, { encoding: 'utf-8' })
@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
     }
     //api
     else if (pathname === '/api') {
-        // res.writeHead(200, { 'Content-type': 'application/json' })
+        res.writeHead(200, { 'Content-type': 'application/json' })
         res.end(data)
     }
     //not found
